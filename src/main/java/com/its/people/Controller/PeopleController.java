@@ -47,7 +47,14 @@ public class PeopleController {
 //        peopleDTO.setName(name);
 //        peopleDTO.setAge(age);
         System.out.println("peopleDTO = " + peopleDTO);
-        peopleService.save1(peopleDTO);
-        return null;
+        boolean saveResult = peopleService.save1(peopleDTO);
+        if (saveResult){
+            System.out.println("저장성공");
+            return "index";
+        }else {
+            System.out.println("저장실패");
+            return "save-fail";
+
+        }
     }
 }
